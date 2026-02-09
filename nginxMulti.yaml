@@ -10,4 +10,6 @@ metadata:
 spec:
   containers:
   - image: nginx
-    name: nginx  
+    name: nginx-first  
+  - image: nginx
+    name: nginx-second
