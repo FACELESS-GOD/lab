@@ -7,11 +7,15 @@ metadata:
     createdOn: 10-02-2026 
   name: httpd-yaml-deployment
 spec:
-  replicas: 4
+  replicas: 10
   selector:
     matchLabels:
       app: httpd-yaml-deployment
-  strategy: {}
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 10%
+      maxSurge : 10%
   template:
     metadata:
       labels:
@@ -19,4 +23,6 @@ spec:
     spec:
       containers:
       - image: httpd:2.4
-        name: httpd
+        name: httpd    
+    
+
