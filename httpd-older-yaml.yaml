@@ -12,17 +12,14 @@ spec:
     matchLabels:
       app: httpd-yaml-deployment
   strategy: 
-    type: RollingUpdate
-    rollingUpdate: 
-      maxUnavailable: 10%
-      maxSurge : 10%
+    type: Recreate    
   template:
     metadata:
       labels:
         app: httpd-yaml-deployment
     spec:
       containers:
-      - image: httpd:2.4
+      - image: httpd
         name: httpd    
     
 
