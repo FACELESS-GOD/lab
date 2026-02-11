@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mohit-yaml-mealie
+    createdby: mohit-ganorkar
+    createdon: 11-02-2026
+  name: mohit-yaml-mealie
+  namespace: mohit-yaml-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mohit-yaml-mealie
+  strategy: 
+    type: Recreate 
+  template:
+    metadata:
+      labels:
+        app: mohit-yaml-mealie
+    spec:
+      containers:
+      - image: ghcr.io/mealie-recipes/mealie:V3.9.2
+        name: mohit-yaml-mealie       
+        ports: 
+          - containerPort: 9000
