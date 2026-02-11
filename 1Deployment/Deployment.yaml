@@ -8,19 +8,22 @@ metadata:
   name: mohit-yaml-mealie
   namespace: mohit-yaml-namespace
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mohit-yaml-mealie
   strategy: 
-    type: Recreate 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1         
   template:
     metadata:
       labels:
         app: mohit-yaml-mealie
     spec:
       containers:
-      - image: ghcr.io/mealie-recipes/mealie:V3.9.2
+      - image: ghcr.io/mealie-recipes/mealie:V3.10.1
         name: mohit-yaml-mealie       
         ports: 
           - containerPort: 9000
