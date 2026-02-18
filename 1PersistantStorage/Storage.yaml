@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mohit-yaml-persistent-volume
+spec:
+  capacity:
+    storage: 1000Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: local-path
+  hostPath:
+    path: "/mnt/data"
